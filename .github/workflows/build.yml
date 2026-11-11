@@ -8,7 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q AmyNitaMenu.zip
-      - run: mkdir -p AmyNitaMenu/app/src/main/res/raw && cp Record_* AmyNitaMenu/app/src/main/res/raw/lagu.mp3
+      - name: Semak zip ada kod muzik
+        run: grep -q MediaPlayer AmyNitaMenu/app/src/main/java/com/example/amynita/MainActivity.java || (echo "ZIP LAMA - tiada kod muzik" && exit 1)
+      - run: mkdir -p AmyNitaMenu/app/src/main/res/raw && cp Record_*.mp3 AmyNitaMenu/app/src/main/res/raw/lagu.mp3
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
