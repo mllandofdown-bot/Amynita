@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q AmyNitaMenu.zip
-      - run: mkdir -p AmyNitaMenu/app/src/main/res/raw && cp lagu.mp3 AmyNitaMenu/app/src/main/res/raw/lagu.mp3
+      - run: mkdir -p AmyNitaMenu/app/src/main/res/raw && cp Record_* AmyNitaMenu/app/src/main/res/raw/lagu.mp3
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
